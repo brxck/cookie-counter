@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121181253) do
+ActiveRecord::Schema.define(version: 20180121182610) do
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "in_stock"
+    t.integer "on_order"
+    t.text "note"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_entries_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "unit"
+    t.string "category"
+    t.integer "threshold"
+    t.integer "value"
+    t.integer "entry_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entry_id"], name: "index_items_on_entry_id"
+    t.index ["name"], name: "index_items_on_name"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,6 +50,16 @@ ActiveRecord::Schema.define(version: 20180121181253) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "wastes", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "quantity"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_wastes_on_item_id"
+    t.index ["user_id"], name: "index_wastes_on_user_id"
   end
 
 end
