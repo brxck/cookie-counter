@@ -7,6 +7,9 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+  = render 'layouts/navbar'
   section.section
     div.container
-       = yield
+      - flash.each do |type, message|
+        div class="notification is-#{type}" #{message}
+      = yield
