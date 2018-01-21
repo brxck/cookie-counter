@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121182610) do
+ActiveRecord::Schema.define(version: 20180121203526) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "in_stock"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180121182610) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_id"
+    t.index ["item_id"], name: "index_entries_on_item_id"
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
@@ -28,10 +30,8 @@ ActiveRecord::Schema.define(version: 20180121182610) do
     t.string "category"
     t.integer "threshold"
     t.integer "value"
-    t.integer "entry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["entry_id"], name: "index_items_on_entry_id"
     t.index ["name"], name: "index_items_on_name"
   end
 
