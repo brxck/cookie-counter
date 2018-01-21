@@ -1,0 +1,7 @@
+tr
+  td = link_to item.name, item
+  td = pluralize(item.quantity, item.unit)
+  td = item.threshold
+  td = item.value
+  td = item.last_updated
+  td = link_to 'Update', new_entry
