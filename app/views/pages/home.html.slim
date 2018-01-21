@@ -1,3 +1,23 @@
 h1.title CookieCounter
 h2.subtitle Home
 
+div.columns
+  div.column
+    div.menu
+      p.menu-label Inventory
+      ul.menu-list
+        li = link_to 'New Entry', '#'
+        li = link_to 'View Order', '#'
+
+      p.menu-label Waste
+      ul.menu-list
+        li = link_to 'Waste Item', '#'
+        li = link_to "Today's Waste", '#'
+        li = link_to "Total Waste", '#'
+
+      p.menu-label Admin
+      ul.menu-list
+        li = link_to 'New Item', '#'
+        li = link_to 'Manage Items', '#'
+        li = link_to 'Manage Users', '#'
+    
