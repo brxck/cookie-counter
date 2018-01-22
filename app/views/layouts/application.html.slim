@@ -14,3 +14,4 @@ html
       - flash.each do |type, message|
         div class="notification is-#{type}" #{message}
       = yield
+  = render 'layouts/footer'

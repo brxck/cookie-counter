@@ -1,0 +1,5 @@
+section.section
+  - if admin_signed_in?
+    = link_to 'Sign Out as Admin', destroy_admin_session_path, class: 'button'
+  - else
+    = link_to 'Sign In as Admin', new_admin_session_path, class: 'button'
