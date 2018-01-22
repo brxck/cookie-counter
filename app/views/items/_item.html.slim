@@ -4,5 +4,5 @@ tr
   td = item.current.on_order
   td = item.threshold
   td = item.value
-  td = time_ago_in_words(item.current.updated_at)
+  td = time_ago_in_words(item.current.updated_at) + ' ago'
   td = link_to 'Update', '#', class: 'button is-small'
