@@ -1,5 +1,10 @@
 div.box
-  h2.subtitle.is-3 = @item.name
+  div.level
+    div.level-left
+      h2.subtitle.is-3 = @item.name
+    div.level-right
+      - unless current_page?(action: 'new')
+        = link_to 'Update', new_entry_path, class: 'button is-info'
   
   div.level
     div

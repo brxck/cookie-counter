@@ -1,18 +1,1 @@
-div.box
-  h2.subtitle.is-3 = @item.name
-  
-  div.level
-    div
-      p.label In stock
-      p = pluralize(@item.in_stock, @item.unit)
-    div
-      p.label On order
-      p = pluralize(@item.on_order, @item.unit)
-    div
-      p.label Alert at
-      p = pluralize(@item.threshold, @item.unit)
-    div
-      p.label Unit value
-      p = number_to_currency(@item.value)
-
-  p.tag.is-info = @item.category
+= render 'shared/item_box'
