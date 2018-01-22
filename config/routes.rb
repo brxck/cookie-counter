@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 
   resources :items
 
-  get  'items/:id/update', to: 'entries#new'
-  post 'items/:id/update', to: 'entries#create'
-  get  'items/:id/history', to: 'entries#index'
+  get  'items/:id/update', to: 'entries#new', as: 'new_entry'
+  get  'items/:id/history', to: 'entries#index', as: 'entries'
 
-  resources :entries, except: %i[new create index]
+  resources :entries, except: %i[new index]
 end
