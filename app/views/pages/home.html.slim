@@ -35,7 +35,7 @@ div.tile.is-ancestor
           div
             - @low_stock.each do |item|
               div
-                = item.current.in_stock
+                = item.in_stock
                 = '  '
                 = link_to item.name, item
         - else

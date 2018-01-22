@@ -1,8 +1,8 @@
 class EntriesController < ApplicationController
   def new
     if (@item = Item.find_by(id: params[:id]))
-      @old_stock = @item.current.in_stock
-      @old_order = @item.current.on_order
+      @old_stock = @item.in_stock
+      @old_order = @item.on_order
       @entry = @item.entries.build
     else
       flash[:danger] = 'Could not find item.'

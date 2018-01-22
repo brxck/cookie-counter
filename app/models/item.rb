@@ -8,17 +8,7 @@ class Item < ApplicationRecord
                                         greater_than_or_equal_to: 0 }
   validates :value, numericality: { greater_than_or_equal_to: 0 }
 
-  def current
-    entries.last
-  end
-
-  def in_stock
-    entries.last.in_stock
-  end
-
-  def on_order
-    entries.last.on_order
-  end
+  private
 
   def default_entry
     entries.build(in_stock: 0, on_order: 0, note: nil, pin: 0000).save

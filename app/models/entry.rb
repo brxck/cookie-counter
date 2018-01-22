@@ -6,11 +6,13 @@ class Entry < ApplicationRecord
   validates :in_stock, :on_order, numericality: { only_integer: true,
                                                   greater_than_or_equal_to: 0 }
 
-  after_save :toggle_low_stock
+  after_save :update_item
 
   private
 
-  def toggle_low_stock
-    item.update_attribute('low_stock', in_stock <= item.threshold)
+  def update_item
+    item.update_attributes(in_stock: in_stock,
+                           on_order: on_order,
+                           low_stock: in_stock <= item.threshold)
   end
 end

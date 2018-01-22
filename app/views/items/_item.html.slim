@@ -1,7 +1,7 @@
 tr
   td = link_to item.name, item
-  td = pluralize(item.current.in_stock, item.unit)
-  td = item.current.on_order
+  td = pluralize(item.in_stock, item.unit)
+  td = item.on_order
   td = item.threshold
   td = item.value
-  td #{time_ago_in_words(item.current.created_at)} ago
+  td #{time_ago_in_words(item.updated_at)} ago
