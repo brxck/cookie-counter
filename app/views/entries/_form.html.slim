@@ -1,26 +1,22 @@
-div.columns
-  div.column
-    - if @entry.errors.any?
-      div.notification
-        - @entry.errors.full_messages.each do |message|
-          ul
-            li #{message}.
+- if @entry.errors.any?
+  div.notification
+    - @entry.errors.full_messages.each do |message|
+      ul
+        li #{message}.
 
-    div.field
-      = form_for @entry, url: entries_path do |f|
-        label.label In Stock
-        div.control
-          = f.number_field :in_stock, value: @old_stock, class: 'input'
+div.field
+  = form_for @entry, url: entries_path do |f|
+    label.label In Stock
+    div.control
+      = f.number_field :in_stock, value: @old_stock, class: 'input'
 
-        label.label On Order
-        div.control
-          = f.number_field :on_order, value: @old_order, class: 'input'
+    label.label On Order
+    div.control
+      = f.number_field :on_order, value: @old_order, class: 'input'
 
-        label.label User PIN
-        div.field.has-addons
-          div.control
-            = f.number_field :employee_id, min: 4, max: 4, class: 'input'
-          div.control  
-            = f.submit 'Update Inventory', class: 'button is-info'
-
-  div.column
+    label.label User PIN
+    div.field.has-addons
+      div.control
+        = f.number_field :pin, min: 4, max: 4, class: 'input'
+      div.control  
+        = f.submit 'Update Inventory', class: 'button is-info'

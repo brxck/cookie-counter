@@ -12,6 +12,14 @@ class Item < ApplicationRecord
     entries.last
   end
 
+  def in_stock
+    entries.last.in_stock
+  end
+
+  def on_order
+    entries.last.on_order
+  end
+
   def default_entry
     entries.build(in_stock: 0, on_order: 0, note: nil, pin: 0000).save
   end
