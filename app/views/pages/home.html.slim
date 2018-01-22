@@ -4,40 +4,58 @@ div.tile.is-ancestor
   div.tile.is-vertical.is-parent
   
     article.tile.is-child.box
-      p.subtitle.is-4 Last Update
+      div.level
+        div.level-left
+          div.level-item
+            p.subtitle.is-4 Last Update
+        div.level-right
+          div.level-item
+            = link_to 'Update Stock', '#', class: 'button is-info'
 
       div.level
         div
           p = @last_update.strftime('%A %m/%d')
-        = link_to 'Update Stock', '#', class: 'button is-info'
+          p By #{@last_update_user}
       
       div
         p #{@entries_updated} of #{Item.count} items updated in the last week.
         progress.progress.is-info #{@percent_updated}%
       div.level
       
-    article.tile.is-child.box
-      p.subtitle.is-4 Today's Waste
+    article.tile.is-child.box      
+      div.level
+        div.level-left
+          div.level-item
+            p.subtitle.is-4 Today's Waste
+        div.level-right
+          div.level-item
+            = link_to 'Log Waste', '#', class: 'button is-danger'
+    
       div.level
         - if @waste.any?
           - @waste.each do |entry|
             p = pluralize(entry.item.name, entry.quantity)
         - else
           p No waste today.
-        = link_to 'Log Waste', '#', class: 'button is-danger'
 
   div.tile.is-parent
     div.tile.is-child.box
-      p.subtitle.is-4 Low Stock
-
       div.level
-        - if @low_stock.any?
-          div
+        div.level-left
+          div.level-item
+            p.subtitle.is-4 Low Stock
+        div.level-right
+          div.level-item
+            = link_to 'View Stock', items_path, class: 'button is-success'      
+    
+      - if @low_stock.any?
+        table.table.is-fullwidth       
+          tbody
             - @low_stock.each do |item|
-              div
-                = item.in_stock
-                = '  '
-                = link_to item.name, item
-        - else
-          p No low stock.
-        = link_to 'View Stock', items_path, class: 'button is-success'
+              tr
+                td = link_to item.name, item
+                td = item.in_stock
+      - else
+        p No low stock.
+
+      
