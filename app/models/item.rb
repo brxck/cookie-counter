@@ -4,8 +4,9 @@ class Item < ApplicationRecord
 
   validates :name, :unit, :category, :value, presence: true
   validates :name, uniqueness: true
-  validates :threshold, :value, numericality: { only_integer: true,
-                                                greater_than_or_equal_to: 0 }
+  validates :threshold, numericality: { only_integer: true,
+                                        greater_than_or_equal_to: 0 }
+  validates :value, numericality: { greater_than_or_equal_to: 0 }
 
   def current
     entries.last

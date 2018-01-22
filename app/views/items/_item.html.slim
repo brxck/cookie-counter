@@ -1,7 +1,7 @@
 tr
   td = link_to item.name, item
-  td = pluralize(item.quantity, item.unit)
+  td = pluralize(item.current.in_stock, item.unit)
   td = item.threshold
   td = item.value
-  td = item.last_updated
-  td = link_to 'Update', new_entry
+  td = item.current.updated_at
+  td = link_to 'Update', '#'
