@@ -17,7 +17,7 @@ units = %w[box case bag tub can roll]
                       threshold: rand(0..10),
                       value: Faker::Commerce.price)
 
-  date = Faker::Date.between(2.weeks.ago, Date.today)
+  date = Faker::Time.between(2.weeks.ago, Date.today)
 
   item.entries.build(in_stock: rand(0..50),
                      on_order: rand(0..50),
@@ -34,7 +34,7 @@ end
                      threshold: rand(0..10),
                      value: Faker::Commerce.price)
 
-  date = Faker::Date.between(2.weeks.ago, Date.today)
+  date = Faker::Time.between(2.weeks.ago, Date.today)
 
   item.entries.build(in_stock: rand(0..50),
                      on_order: rand(0..50),
@@ -45,7 +45,7 @@ end
 
 # Waste
 25.times do
-  date = Faker::Date.between(1.week.ago, Date.today)
+  date = Faker::Time.between(1.week.ago, Date.today)
 
   Waste.create!(quantity: rand(0..10),
                 item_id: rand(1..50),
