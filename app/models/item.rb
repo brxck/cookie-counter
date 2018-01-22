@@ -12,6 +12,6 @@ class Item < ApplicationRecord
   end
 
   def default_entry
-    entries.build(in_stock: 0, on_order: 0, note: nil, user_id: 1).save
+    entries.build(in_stock: 0, on_order: 0, note: nil, employee_id: 1).save
   end
 end

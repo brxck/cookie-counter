@@ -1,17 +1,44 @@
-h1.title CookieCounter
+h1.title Dashboard
 
 div.tile.is-ancestor
   div.tile.is-vertical.is-parent
       
     article.tile.is-child.box
       p.title.is-4 Low Stock
+      div.level
+        - if @low_stock.any?
+          div
+            - @low_stock.each do |item|
+              div
+                = item.current.in_stock
+                = '  '
+                = link_to item.name, item
+        - else
+          p No low stock.
+        = link_to 'View Stock', items_path, class: 'button is-success'
   
     article.tile.is-child.box
       p.title.is-4 Last Update
-      p = Entry.last.updated_at.strftime('%m/%d/%y at %I:%M %p')
+      
+      div
+        p #{@entries_updated} of #{Item.count} items updated in the last week.
+        progress.progress.is-info #{@percent_updated}%
+      div.level
+
+      div.level
+        div
+          p = @last_update.strftime('%A %m/%d')
+        = link_to 'Update Stock', '#', class: 'button is-info'
       
     article.tile.is-child.box
       p.title.is-4 Today's Waste
+      div.level
+        - if @waste.any?
+          - @waste.each do |entry|
+            p = pluralize(entry.item.name, entry.quantity)
+        - else
+          p No waste today.
+        = link_to 'Log Waste', '#', class: 'button is-danger'
 
   div.tile.is-parent
     div.tile.is-child.box
