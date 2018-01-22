@@ -4,7 +4,8 @@ div.tile.is-ancestor
   div.tile.is-vertical.is-parent
       
     article.tile.is-child.box
-      p.title.is-4 Low Stock
+      p.subtitle.is-4 Low Stock
+
       div.level
         - if @low_stock.any?
           div
@@ -18,20 +19,20 @@ div.tile.is-ancestor
         = link_to 'View Stock', items_path, class: 'button is-success'
   
     article.tile.is-child.box
-      p.title.is-4 Last Update
-      
-      div
-        p #{@entries_updated} of #{Item.count} items updated in the last week.
-        progress.progress.is-info #{@percent_updated}%
-      div.level
+      p.subtitle.is-4 Last Update
 
       div.level
         div
           p = @last_update.strftime('%A %m/%d')
         = link_to 'Update Stock', '#', class: 'button is-info'
       
+      div
+        p #{@entries_updated} of #{Item.count} items updated in the last week.
+        progress.progress.is-info #{@percent_updated}%
+      div.level
+      
     article.tile.is-child.box
-      p.title.is-4 Today's Waste
+      p.subtitle.is-4 Today's Waste
       div.level
         - if @waste.any?
           - @waste.each do |entry|
