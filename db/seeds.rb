@@ -1,8 +1,12 @@
 # Employees
 
-10.times do
+Employee.create(name: 'Brock McElroy', pin: '0000')
+
+pins = Array.new(10) { Faker::Number.unique.number(4) }
+
+(0..9).each do |i|
   Employee.create!(name: Faker::TwinPeaks.unique.character,
-                  pin: Faker::Number.unique.number(4))
+                   pin: pins[i])
 end
 
 # Items
@@ -21,7 +25,7 @@ units = %w[box case bag tub can roll]
 
   item.entries.build(in_stock: rand(0..50),
                      on_order: rand(0..50),
-                     employee_id: rand(1..10),
+                     pin: pins.sample,
                      created_at: date,
                      updated_at: date).save!
 end
@@ -29,16 +33,16 @@ end
 # Prepared
 25.times do
   item = Item.create!(name: Faker::Food.unique.dish,
-                     unit: units.sample,
-                     category: 'Prepared',
-                     threshold: rand(0..10),
-                     value: Faker::Commerce.price)
+                      unit: units.sample,
+                      category: 'Prepared',
+                      threshold: rand(0..10),
+                      value: Faker::Commerce.price)
 
   date = Faker::Time.between(2.weeks.ago, Date.today)
 
   item.entries.build(in_stock: rand(0..50),
                      on_order: rand(0..50),
-                     employee_id: rand(1..10),
+                     pin: pins.sample,
                      created_at: date,
                      updated_at: date).save!
 end
@@ -49,7 +53,7 @@ end
 
   Waste.create!(quantity: rand(0..10),
                 item_id: rand(1..50),
-                employee_id: rand(1..10),
+                pin: pins.sample,
                 created_at: date,
                 updated_at: date)
 end

@@ -1,6 +1,6 @@
 class Waste < ApplicationRecord
   belongs_to :item
-  belongs_to :employee
+  belongs_to :employee, foreign_key: :pin, primary_key: :pin
 
   validates :item_id, :quantity, presence: true
   validates :quantity, numericality: { only_integer: true,

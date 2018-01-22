@@ -1,6 +1,8 @@
 class Employee < ApplicationRecord
+  self.primary_key = :pin
+
   has_many :entries
   has_many :wastes
 
-  validates :name, :pin, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 end

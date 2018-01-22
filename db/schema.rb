@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180122004905) do
+ActiveRecord::Schema.define(version: 20180122185159) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,9 +31,10 @@ ActiveRecord::Schema.define(version: 20180122004905) do
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
-    t.integer "pin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pin"
+    t.index ["pin"], name: "index_employees_on_pin"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -43,9 +44,9 @@ ActiveRecord::Schema.define(version: 20180122004905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "item_id"
-    t.integer "employee_id"
-    t.index ["employee_id"], name: "index_entries_on_employee_id"
+    t.integer "pin"
     t.index ["item_id"], name: "index_entries_on_item_id"
+    t.index ["pin"], name: "index_entries_on_pin"
   end
 
   create_table "items", force: :cascade do |t|
@@ -82,9 +83,9 @@ ActiveRecord::Schema.define(version: 20180122004905) do
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "employee_id"
-    t.index ["employee_id"], name: "index_wastes_on_employee_id"
+    t.integer "pin"
     t.index ["item_id"], name: "index_wastes_on_item_id"
+    t.index ["pin"], name: "index_wastes_on_pin"
   end
 
 end
