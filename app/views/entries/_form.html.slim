@@ -1,0 +1,25 @@
+- if @entry.errors.any?
+  div.notification
+    - @entry.errors.full_messages.each do |message|
+      ul
+        li #{message}.
+
+= render @item
+
+div.field
+  = form_for @entry do |f|
+    label.label In Stock
+    div.control
+      = f.text_field :in_stock, class: 'input'
+
+    label.label On Order
+    div.control
+      = f.text_field :unit, placeholder: 'Tub', class: 'input'
+    p.help Units to keep track of (ex. bags, boxes, tubs)
+
+    label.label User PIN
+    div.field.has-addons
+      div.control
+        = f.number_field :pin, nil, min: 4, max: 4, class: 'input'
+      div.control  
+        = f.submit 'Update Inventory', class: 'button is-info'

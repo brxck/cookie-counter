@@ -1,6 +1,11 @@
 class EntriesController < ApplicationController
   def new
-    @entry = Entry.new
+    if (@item = Item.find_by(params[:id]))
+      @entry = @item.entries.build
+    else
+      flash[:danger] = 'Could not find item.'
+      redirect_to items_path
+    end
   end
 
   def create
