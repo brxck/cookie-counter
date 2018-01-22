@@ -39,12 +39,13 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    flash[:success] = "Item deleted."
+    flash[:success] = 'Item deleted.'
   end
+
   private
 
   def set_item
-    if !(@item = Item.find_by(params[:id]))
+    unless (@item = Item.find_by(id: params[:id]))
       flash[:warning] = 'Item not found.'
       redirect_to items_path
     end
