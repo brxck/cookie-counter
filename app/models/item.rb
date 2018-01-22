@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_many :entries
+  before_create :blank_entry
 
   validates :name, :unit, :category, :value, presence: true
   validates :name, uniqueness: true
@@ -24,5 +25,9 @@ class Item < ApplicationRecord
   def last_updated
     return unless entries.any?
     entries.last.updated_at
+  end
+
+  def blank_entry
+    entries.build(in_stock: 0, on_order: 0, note: nil, user_id: 1).save
   end
 end
