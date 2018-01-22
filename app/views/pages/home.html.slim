@@ -33,8 +33,11 @@ div.tile.is-ancestor
     
       div.level
         - if @waste.any?
-          - @waste.each do |entry|
-            p = pluralize(entry.item.name, entry.quantity)
+          table.table.is-fullwidth
+            - @waste.each do |entry|
+              tr
+                td = link_to entry.item.name
+                td = pluralize(entry.quantity, entry.item.unit)
         - else
           p No waste today.
 
