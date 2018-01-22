@@ -2,21 +2,6 @@ h1.title Dashboard
 
 div.tile.is-ancestor
   div.tile.is-vertical.is-parent
-      
-    article.tile.is-child.box
-      p.subtitle.is-4 Low Stock
-
-      div.level
-        - if @low_stock.any?
-          div
-            - @low_stock.each do |item|
-              div
-                = item.current.in_stock
-                = '  '
-                = link_to item.name, item
-        - else
-          p No low stock.
-        = link_to 'View Stock', items_path, class: 'button is-success'
   
     article.tile.is-child.box
       p.subtitle.is-4 Last Update
@@ -43,3 +28,16 @@ div.tile.is-ancestor
 
   div.tile.is-parent
     div.tile.is-child.box
+      p.subtitle.is-4 Low Stock
+
+      div.level
+        - if @low_stock.any?
+          div
+            - @low_stock.each do |item|
+              div
+                = item.current.in_stock
+                = '  '
+                = link_to item.name, item
+        - else
+          p No low stock.
+        = link_to 'View Stock', items_path, class: 'button is-success'
