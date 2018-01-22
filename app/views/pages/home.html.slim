@@ -1,2 +1,13 @@
 h1.title CookieCounter
-h2.subtitle Home
+
+div.tile.is-ancestor
+  div.tile.is-vertical.is-parent
+    article.tile.is-child.box
+      p.title.is-4 Last Update
+      p = Entry.last.updated_at
+    article.tile.is-child.box
+      p.title.is-4 Low Stock
+    article.tile.is-child.box
+      p.title.is-4 Today's Waste
+  div.tile.is-parent
+    div.tile.is-child.box
