@@ -1,10 +1,15 @@
 div.box
   div.level
     div.level-left
-      h2.subtitle.is-3 = @item.name
+      level.item
+        h2.subtitle.is-3 = @item.name
     div.level-right
       - unless current_page?(action: 'new')
-        = link_to 'Update', new_entry_path, class: 'button is-info'
+        div.field.has-addons
+          div.control
+            = link_to 'Waste', new_waste_path, class: 'button is-danger'
+          div.control
+            = link_to 'Update', new_entry_path, class: 'button is-info'
   
   div.level
     div
