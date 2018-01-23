@@ -11,6 +11,8 @@ gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Better than a CSS reset
+gem 'normalize-rails'
 # Use Slim for views
 gem 'slim-rails'
 # Use Bulma for aesthetic
