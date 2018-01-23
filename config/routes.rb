@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :items
+  get 'search', to: 'items#search'
 
   get  'items/:id/update', to: 'entries#new', as: 'new_entry'
   post 'items/:id/update', to: 'entries#create'

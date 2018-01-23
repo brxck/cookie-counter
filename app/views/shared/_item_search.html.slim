@@ -1,0 +1,6 @@
+= form_tag '/search', method: :get
+  div.field.has-addons
+    div.control
+      = text_field_tag :item_name, nil, class: 'input', autofocus: true
+    div.control
+      = submit_tag 'Search', class: 'button is-info'

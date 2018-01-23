@@ -43,6 +43,18 @@ class ItemsController < ApplicationController
     flash[:success] = 'Item deleted.'
   end
 
+  def search
+    @items = Item.where('name LIKE ?', "%#{params[:item_name]}%")
+    if @items.count == 1
+      redirect_to @items.first
+    elsif @items.none?
+      flash[:info] = 'No items found.'
+      redirect_to root_path
+    else
+      render :index
+    end
+  end
+
   private
 
   def set_item
