@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
   def index
     @items = Item.all
   end
-  
+
   private
 
   def set_item

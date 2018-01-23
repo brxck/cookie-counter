@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_many :entries
+  has_many :wastes
   before_create :default_entry
 
   validates :name, :unit, :category, :value, presence: true

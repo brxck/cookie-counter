@@ -29,7 +29,7 @@ div.tile.is-ancestor
             p.subtitle.is-4 Today's Waste
         div.level-right
           div.level-item
-            = link_to 'Log Waste', '#', class: 'button is-danger'
+            = link_to 'Log Waste', new_waste_path(id: 1), class: 'button is-danger'
     
       div.level
         - if @waste.any?

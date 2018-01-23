@@ -1,0 +1,8 @@
+div.field
+  label.label Item
+  div.field
+    div.control
+      input.input.awesomplete#waste_item_id name='waste[item_name]' list='mylist' value="#{@item.name}"
+      datalist#mylist
+        - @items.each do |name, id|
+          option = name
