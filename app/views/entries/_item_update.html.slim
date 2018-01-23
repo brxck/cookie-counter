@@ -1,0 +1,11 @@
+- @items.each do |item|
+  tr
+    = hidden_field_tag "items[#{item.id}]][id]", item.id
+    td 
+      label.checkbox
+        = check_box_tag "update[]", item.id
+    td = item.name
+    td = item.unit.pluralize(2).capitalize
+    td = number_field_tag "items[#{item.id}][in_stock]", item.in_stock, min: 0, class: 'input'
+    td = number_field_tag "items[#{item.id}][on_order]", item.on_order, min: 0, class: 'input'
+    td = item.threshold

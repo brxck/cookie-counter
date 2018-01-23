@@ -1,12 +1,33 @@
 h1.title Update Inventory
 
+= form_tag '/update'
+
 table.table.is-striped
   div.thead
+    th
     th Item
-    th Stock
-    th Order
+    th Unit
+    th In Stock
+    th On Order
     th Threshold
-    th Value
-    th Updated
   div.tbody
-    = render @items
+    == render 'item_update'
+  div.tfoot
+    th
+    th Item
+    th Unit
+    th In Stock
+    th On Order
+    th Threshold
+
+
+div.navbar.is-fixed-bottom.has-shadow
+  div.navbar-brand
+    div.navbar-item
+      p PIN:
+    div.navbar-item
+      div.field.has-addons
+        div.control
+          = number_field_tag :pin, nil, class: 'input', min: 0, max: 9999
+        div.control
+          = submit_tag 'Update Inventory', class: 'button is-info'

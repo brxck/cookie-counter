@@ -22,6 +22,20 @@ class EntriesController < ApplicationController
     @items = Item.all
   end
 
+  def update
+    params[:update].each do |item_id|
+      item = Item.find(item_id)
+      entry = item.entries.build(in_stock: params[:items][item_id][:in_stock],
+                                 on_order: params[:items][item_id][:on_order],
+                                 pin: params[:pin])
+      next if entry.save
+      flash.now[:danger] = 'Could not update inventory.'
+      render :index
+    end
+    flash[:success] = 'Inventory updated.'
+    redirect_to items_path
+  end
+
   private
 
   def set_item
