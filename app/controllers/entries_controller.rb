@@ -18,9 +18,6 @@ class EntriesController < ApplicationController
     end
   end
 
-  def update
-  end
-
   def index
     if (@item = Item.find_by(id: params[:id]))
       @entries = @item.entries.all
