@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   get  'items/:id/update', to: 'entries#new', as: 'new_entry'
   post 'items/:id/update', to: 'entries#create'
+  get  'update', to: 'entries#index', as: 'entries'
 end

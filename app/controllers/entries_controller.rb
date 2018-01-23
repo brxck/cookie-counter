@@ -19,12 +19,7 @@ class EntriesController < ApplicationController
   end
 
   def index
-    if (@item = Item.find_by(id: params[:id]))
-      @entries = @item.entries.all
-    else
-      flash[:danger] = "Item not found."
-      redirect_to items_path
-    end
+    @items = Item.all
   end
   
   private

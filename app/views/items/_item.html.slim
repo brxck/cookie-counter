@@ -1,7 +1,18 @@
 tr
-  td = link_to item.name, item
-  td = pluralize(item.in_stock, item.unit)
-  td = item.on_order
-  td = item.threshold
-  td = item.value
-  td #{time_ago_in_words(item.updated_at)} ago
+  - if current_page?(controller: 'entries')
+    = form_for item do |f|
+      td = item.name
+      td = f.number_field :in_stock, value: item.in_stock
+      td = item.unit
+      td = f.number_field :on_order, value: item.on_order
+      td = item.threshold
+      td = item.value
+      td #{time_ago_in_words(item.updated_at)} ago
+
+  - else
+    td = link_to item.name, item
+    td = pluralize(item.in_stock, item.unit)
+    td = item.on_order
+    td = item.threshold
+    td = item.value
+    td #{time_ago_in_words(item.updated_at)} ago
