@@ -9,3 +9,4 @@
     td = number_field_tag "items[#{item.id}][in_stock]", item.in_stock, min: 0, class: 'input'
     td = number_field_tag "items[#{item.id}][on_order]", item.on_order, min: 0, class: 'input'
     td = item.threshold
+    td = time_ago_in_words(item.updated_at)

@@ -1,5 +1,7 @@
 h1.title Update Inventory
 
+p.notification.is-info Only checked items will be updated.
+
 = form_tag '/update'
 
 table.table.is-striped
@@ -10,6 +12,7 @@ table.table.is-striped
     th In Stock
     th On Order
     th Threshold
+    th Last Updated
   div.tbody
     == render 'item_update'
   div.tfoot
@@ -19,7 +22,7 @@ table.table.is-striped
     th In Stock
     th On Order
     th Threshold
-
+    th Last Updated
 
 div.navbar.is-fixed-bottom.has-shadow
   div.navbar-brand

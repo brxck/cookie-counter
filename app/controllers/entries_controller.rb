@@ -19,7 +19,7 @@ class EntriesController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.all.order(name: :asc)
   end
 
   def update
