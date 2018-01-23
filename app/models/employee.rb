@@ -5,4 +5,8 @@ class Employee < ApplicationRecord
   has_many :wastes
 
   validates :name, presence: true, uniqueness: true
+
+  def initials
+    name.split.map { |x| x[0] }.join('')
+  end
 end

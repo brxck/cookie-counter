@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @entries = @item.entries.order(created_at: :desc)
   end
 
   def index

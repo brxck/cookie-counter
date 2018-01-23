@@ -6,7 +6,7 @@ class Entry < ApplicationRecord
   validates :in_stock, :on_order, numericality: { only_integer: true,
                                                   greater_than_or_equal_to: 0 }
 
-  after_save :update_item
+  after_create :update_item
 
   private
 
