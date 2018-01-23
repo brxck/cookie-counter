@@ -42,7 +42,7 @@ div.tile.is-ancestor
           table.table.is-fullwidth
             - @waste.each do |entry|
               tr
-                td = link_to entry.item.name
+                td = link_to entry.item.name, entry.item
                 td = pluralize(entry.quantity, entry.item.unit)
         - else
           p No waste today.
