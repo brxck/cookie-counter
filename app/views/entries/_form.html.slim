@@ -5,7 +5,7 @@
         li #{message}.
 
 div.field
-  = form_for @entry, url: entries_path do |f|
+  = form_for @entry, url: new_entry_path do |f|
     label.label In Stock
     div.control
       = f.number_field :in_stock, value: @old_stock, class: 'input'
@@ -17,6 +17,6 @@ div.field
     label.label User PIN
     div.field.has-addons
       div.control
-        = f.number_field :pin, min: 4, max: 4, class: 'input'
+        = f.number_field :pin, min: 0, max: 9999, class: 'input'
       div.control  
         = f.submit 'Update Inventory', class: 'button is-info'
