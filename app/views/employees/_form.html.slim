@@ -1,9 +1,20 @@
-= form_for @employee do |f|
-  - if @employee.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@employee.errors.count, "error")} prohibited this employee from being saved:"
+- if @employee.errors.any?
+  div.notification
+    - @employee.errors.full_messages.each do |message|
       ul
-        - @employee.errors.full_messages.each do |message|
-          li = message
+        li #{message}.
 
-  .actions = f.submit
+div.field
+  = form_for @employee do |f|
+    label.label Full Name
+    div.control
+      = f.text_field :name, placeholder: 'John Doe', class: 'input'
+
+    label.label PIN
+    div.control
+      = f.text_field :pin, placeholder: '0000', class: 'input'
+      p.help Four digit code
+
+    br
+    div.control
+      = f.submit nil, class: 'button is-success'
