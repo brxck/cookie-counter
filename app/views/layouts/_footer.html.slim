@@ -1,5 +1,13 @@
 section.section
-  - if admin_signed_in?
-    = link_to 'Sign Out as Admin', destroy_admin_session_path, class: 'button'
-  - else
-    = link_to 'Sign In as Admin', new_admin_session_path, class: 'button'
+  div.level
+    div.level-left
+      - if admin_signed_in?
+          = link_to 'Admin Panel', '#', class: 'level-item'
+          = link_to 'Log Out', destroy_admin_session_path, class: 'level-item'
+      - else
+        = link_to 'Admin Login', new_admin_session_path
+    div.level-right
+      div.level-item
+        = link_to 'About', '#', class: 'level-item'
+      div.level-item
+        = link_to 'Contact', '#', class: 'level-item'

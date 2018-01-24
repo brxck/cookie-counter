@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins
+
   root 'pages#home'
+  get '/admin', to: 'pages#admin_panel'
 
   resources :items
   get 'search', to: 'items#search'

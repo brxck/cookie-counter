@@ -1,0 +1,20 @@
+div.columns
+  div.column
+    div.box
+      div.level
+        label.label Employees
+        div.buttons.has-addons
+          = link_to 'Manage', 'employees_path', class: 'button'
+          = link_to 'New', 'new_employee_path', class: 'button'
+      div.level
+        label.label Items
+        div.buttons.has-addons
+          = link_to 'Manage', items_path, class: 'button'
+          = link_to 'New', new_item_path, class: 'button'
+
+      div.level
+        label.label Admins
+        div.buttons.has-addons
+          = link_to 'Manage', edit_admin_registration_path, class: 'button'
+          = link_to 'New', new_admin_registration_path, class: 'button'
+  div.column

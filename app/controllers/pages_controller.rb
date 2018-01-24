@@ -7,4 +7,10 @@ class PagesController < ApplicationController
     @percent_updated = @entries_updated / Item.count * 100
     @waste = Waste.where("created_at >= ?", Time.zone.now.beginning_of_day)
   end
+
+  def admin_panel; end
+
+  def about; end
+
+  def contact; end
 end
