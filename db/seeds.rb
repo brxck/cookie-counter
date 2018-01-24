@@ -1,3 +1,5 @@
+require 'faker'
+
 # Employees
 
 Employee.create(name: 'Brock McElroy', pin: '0000')
