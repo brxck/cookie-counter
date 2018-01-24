@@ -5,12 +5,15 @@ class PagesController < ApplicationController
     @last_update_user = Employee.find(Entry.last.pin).name
     @entries_updated = Item.where('updated_at > ?', 1.week.ago).count
     @percent_updated = @entries_updated / Item.count * 100
-    @waste = Waste.where("created_at >= ?", Time.zone.now.beginning_of_day)
+    @waste = Waste.where('created_at >= ?', Time.zone.now.beginning_of_day)
   end
 
-  def admin_panel; end
+  def admin_panel
+  end
 
-  def about; end
+  def about
+  end
 
-  def contact; end
+  def contact
+  end
 end
