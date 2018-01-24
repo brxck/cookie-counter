@@ -1,13 +1,13 @@
 section.section
-  div.level
-    div.level-left
-      - if admin_signed_in?
-          = link_to 'Admin Panel', '#', class: 'level-item'
-          = link_to 'Log Out', destroy_admin_session_path, class: 'level-item'
-      - else
-        = link_to 'Admin Login', new_admin_session_path
-    div.level-right
-      div.level-item
-        = link_to 'About', '#', class: 'level-item'
-      div.level-item
-        = link_to 'Contact', '#', class: 'level-item'
+div.navbar.is-transparent
+  div.navbar-start
+    - if admin_signed_in?
+        = link_to 'Admin Panel', admin_panel_path, class: 'navbar-item'
+        = link_to 'Log Out', destroy_admin_session_path, class: 'navbar-item'
+    - else
+      = link_to 'Admin Login', new_admin_session_path
+  div.navbar-end
+    div.navbar-item
+      = link_to 'About', about_path, class: 'navbar-item'
+    div.navbar-item
+      = mail_to 'brxck@protonmail.com', 'Contact', class: 'navbar-item'
