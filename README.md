@@ -1,55 +1,23 @@
-# cookie-counter
+# [cookie-counter](https://powerful-castle-48169.herokuapp.com)
 
-## Planning
+CookieCounter tracks what's in-stock and on-order throughout the entirety of your inventory. Mobile-friendly and available on any device with a web browser.
 
-### Features
+## Features
 
-- Track and update inventory
-  - On hand
-  - On order
-  - Thresholds -- low stock alerts
-  - Unit cost/value
-  - Wastage
-  - Time since last count
-- All from a tablet/computer
-- Authentication/administration
-  - Add/edit/delete items
+- Track inventory
+  - Know when stock is getting low and what's already on order.
+  - Dashboard: see when stock's getting low or inventory is due for an update at a glance.
+- Interactive charts
+  - Visualize the entire history of any item's stock, order, and wastage.
+  - Adjust chart resolution with one button.
+- Low stock alerts
+  - Set low stock thresholds for each item and get alerts on the dashboard or by email.
+- Quick entry with PIN
+  - No need to login to update inventory or log waste, just submit with your employee PIN.
 
-Maybe:
+## Technologies Used
 
-- Access from anywhere
-- History through snapshots
-  - Graph
-  - dInventory - waste = sales
-- Export to Excel
-- User accounts?
-  - Dropdown login + PIN
-
-### Database Models
-
-**Transactional model:** *Stock = Recieved - Sold - Waste.* Requires accurate tracking of sales/usage/waste. Seems unlikely.
-
-**Count model:** Stock is counted regularly and updated.
-
-- item
-  - id
-  - in_stock
-  - on_order
-  - name
-  - unit
-  - value
-  - threshold
-  - last_count
-  - has_many :categories
-
-- category
-  - name
-  - has_many :items
-
-Snapshots can be taken every *x* interval (depending on database size and storage capacity) to allow for comparison over time.
-
-Shorter interval snapshots could be stored over a shorter timespan to allow for backup & rollback capacity in case something goes wrong or someone screws up.
-
-### Hosting
-
-### Security
+- Devise: administrator login
+- Bulma: mobile-first SCSS framework
+- Chartkick: generate stock charts
+- Awesomplete: JavaScript-free autocomplete
