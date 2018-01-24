@@ -1,0 +1,15 @@
+div.box
+  div.level
+    div.level-right
+      h2.subtitle History
+    div.level-left
+      = form_tag @item, method: :get
+      div.field.has-addons
+        div.control
+          = select_tag :period, options_for_select(%w[Day Week Month Year], @period.to_s.capitalize), class: 'select'
+        div.control
+          = submit_tag 'Chart it', class: 'button is-success'
+
+  = line_chart [{name: 'Stock', data: @stock_data},
+                {name: 'Order', data: @order_data},
+                {name: 'Waste', data: @waste_data}]

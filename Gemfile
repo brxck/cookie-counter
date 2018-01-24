@@ -25,6 +25,10 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'faker'
 
+# Create charts! 
+gem 'chartkick'
+gem 'groupdate'
+
 # Use Devise for authentication
 gem 'devise'
 

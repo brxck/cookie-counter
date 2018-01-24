@@ -1,7 +1,8 @@
-= provide :title, @item
+= provide :title, @item.name
 
 div.columns
   div.column
-    = render 'shared/item_box'
+    == render 'shared/item_box'
+    == render 'shared/item_history'
   div.column
-    = render 'shared/item_history'
+    == render 'shared/item_chart'

@@ -31,7 +31,17 @@ class ItemsController < ApplicationController
   end
 
   def show
+    if params[:period]
+      @period = params[:period].downcase.to_sym
+    else
+      @period = :week
+    end
+
     @entries = @item.entries.order(created_at: :desc)
+    
+    @stock_data = @entries.group_by_period(@period, :created_at).average(:in_stock)
+    @order_data = @entries.group_by_period(@period, :created_at).average(:on_order)
+    @waste_data = @item.wastes.group_by_period(@period, :created_at).average(:quantity)
   end
 
   def index
