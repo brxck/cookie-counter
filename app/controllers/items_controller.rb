@@ -39,8 +39,8 @@ class ItemsController < ApplicationController
 
     @entries = @item.entries.order(created_at: :desc)
     
-    @stock_data = @entries.group_by_period(@period, :created_at).average(:in_stock)
-    @order_data = @entries.group_by_period(@period, :created_at).average(:on_order)
+    @stock_data = @item.entries.group_by_period(@period, :created_at).average(:in_stock)
+    @order_data = @item.entries.group_by_period(@period, :created_at).average(:on_order)
     @waste_data = @item.wastes.group_by_period(@period, :created_at).average(:quantity)
   end
 
