@@ -1,5 +1,5 @@
 class Waste < ApplicationRecord
-  belongs_to :item
+  belongs_to :item, dependent: :delete
   belongs_to :employee, foreign_key: :pin, primary_key: :pin
 
   validates :item_id, :quantity, presence: true

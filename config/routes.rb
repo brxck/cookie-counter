@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   get  'items/:id/waste', to: 'wastes#new', as: 'new_waste'
   post 'items/:id/waste', to: 'wastes#create'
+  get  'waste', to: 'wastes#index', as: 'wastes'
 end

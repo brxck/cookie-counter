@@ -17,6 +17,10 @@ class WastesController < ApplicationController
     end
   end
 
+  def index
+    @wastes = Waste.all.order(created_at: :desc)
+  end
+
   private
 
   def set_item

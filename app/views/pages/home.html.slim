@@ -18,7 +18,7 @@ div.tile.is-ancestor
             p.subtitle.is-4 #{fa_icon 'pencil'} Last Update
         div.level-right
           div.level-item
-            = link_to 'Update Stock', entries_path, class: 'button is-info'
+            = link_to 'Update', entries_path, class: 'button is-info'
 
       div.level
         div
@@ -37,7 +37,9 @@ div.tile.is-ancestor
             p.subtitle.is-4 #{fa_icon 'trash'} Today's Waste
         div.level-right
           div.level-item
-            = link_to 'Log Waste', new_waste_path(id: 1), class: 'button is-danger'
+            div.buttons.has-addons
+              = link_to 'View All', wastes_path, class: 'button' 
+              = link_to 'Log', new_waste_path(id: 1), class: 'button is-danger'
     
       div.level
         - if @waste.any?
@@ -57,7 +59,7 @@ div.tile.is-ancestor
             p.subtitle.is-4 #{fa_icon 'exclamation-circle'} Low Stock
         div.level-right
           div.level-item
-            = link_to 'View Stock', items_path, class: 'button is-success'      
+            = link_to 'View All', items_path, class: 'button is-success'      
     
       - if @low_stock.any?
         table.table.is-fullwidth       
