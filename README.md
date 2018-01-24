@@ -18,6 +18,7 @@ CookieCounter tracks what's in-stock and on-order throughout the entirety of you
 ## Technologies Used
 
 - Devise: administrator login
+- Slim: Faster, cleaner Rails view renderer
 - Bulma: mobile-first SCSS framework
 - Chartkick: generate stock charts
 - Awesomplete: JavaScript-free autocomplete
