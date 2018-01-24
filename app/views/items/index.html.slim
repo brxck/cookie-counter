@@ -16,5 +16,8 @@ table.table.is-striped.is-fullwidth
     th Threshold
     th Value
     th Updated
+    - if admin_signed_in?
+      th
+      th
   div.tbody
     = render @items 

@@ -16,3 +16,7 @@ tr
     td = item.threshold
     td = item.value
     td #{time_ago_in_words(item.updated_at)} ago
+
+  - if admin_signed_in?
+    td = link_to 'Edit', edit_item_path(item.id), class: 'button is-small is-info'
+    td = link_to 'Delete', item, class: 'button is-small is-danger', data: { confirm: 'Are you sure?' }, method: :delete

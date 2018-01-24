@@ -13,7 +13,7 @@ div.field
     label.label Unit
     div.control
       = f.text_field :unit, placeholder: 'Tub', class: 'input'
-    p.help Units to keep track of (ex. bags, boxes, tubs)
+    p.help Singular unit to keep track of (ex. bag, box, tub)
 
     label.label Category
     div.control
@@ -29,4 +29,6 @@ div.field
       = f.text_field :name, placeholder: 'Flour', class: 'input'
     p.help Cost per unit, used in wastage
 
-    = f.submit nil, class: 'button'
+    br
+    div.control
+      = f.submit nil, class: 'button is-success'
