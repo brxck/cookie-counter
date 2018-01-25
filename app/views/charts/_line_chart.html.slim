@@ -1,0 +1,12 @@
+div.box
+  div.level
+    div.level-left
+      div.subtitle = heading
+    div.level-right
+      = form_tag {}, method: :get
+      div.field.has-addons
+        div.control
+          = select_tag  , class: 'button'
+        div.control
+          = submit_tag 'Chart it', class: 'button'
+      = data, xtitle: xtitle, ytitle: ytitle, download: download, class

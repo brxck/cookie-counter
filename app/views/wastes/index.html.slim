@@ -1,5 +1,14 @@
 = provide :title, 'Waste Log'
 
+div.container.box
+  div.level
+    div.level-left
+      h2.subtitle Items Wasted
+    div.level-right
+      = form_tag method: :get
+      = select_tag chart_periods
+  = area_chart @waste_data
+
 table.table.is-fullwidth
   thead
     th Date

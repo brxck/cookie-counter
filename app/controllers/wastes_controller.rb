@@ -19,6 +19,8 @@ class WastesController < ApplicationController
 
   def index
     @wastes = Waste.all.order(created_at: :desc)
+
+    @waste_data = helpers.chart_sum(Waste.all, :day, :quantity)
   end
 
   private
