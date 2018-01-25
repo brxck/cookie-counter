@@ -38,10 +38,10 @@ class ItemsController < ApplicationController
     end
 
     @entries = @item.entries.order(created_at: :desc)
-    
-    @stock_data = @item.entries.group_by_period(@period, :created_at).average(:in_stock)
-    @order_data = @item.entries.group_by_period(@period, :created_at).average(:on_order)
-    @waste_data = @item.wastes.group_by_period(@period, :created_at).average(:quantity)
+
+    @stock_data = helpers.chart_data(@item.entries, @period, :in_stock)
+    @order_data = helpers.chart_data(@item.entries, @period, :on_order)
+    @waste_data = helpers.chart_data(@item.wastes, @period, :quantity)
   end
 
   def index
