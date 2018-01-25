@@ -12,4 +12,7 @@ div.box
 
   = line_chart [{name: 'Stock', data: @stock_data},
                 {name: 'Order', data: @order_data},
-                {name: 'Waste', data: @waste_data}]
+                {name: 'Waste', data: @waste_data}],
+                xtitle: "Date (#{@period.to_s.pluralize(2)})",
+                ytitle: "#{@item.unit.pluralize(2).capitalize} of #{@item.name}",
+                download: "#{@item.name.downcase}-#{@period.to_s}-chart"
