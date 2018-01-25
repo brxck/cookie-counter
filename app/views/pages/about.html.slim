@@ -8,16 +8,28 @@ section.hero.is-info
       h2.subtitle
         | at the Cookie Castle
 
+div.columns
+  div.column
+  div.column.box
+    p CookieCounter tracks what's in-stock and on-order throughout the entirety of your inventory.
+    br
+    p It's mobile-friendly and available on any device with a web browser.
+    br
+    p Find the code on #{link_to 'Github!', 'https://github.com/brxck/cookie-counter'}
+  div.column
+
 section.section
   div.level
     div.level-item
-      div Developed by Brock McElroy
+      div.subtitle.is-5 Developed by Brock McElroy
   div.level
     div.level-item
       div.buttons.has-addons
-        a.button href='mailto:brxck@protonmail.com'
-          span = fa_icon 'send'
-        a.button href='http://brockmcelroy.com'
-          span = fa_icon 'info-circle'
+        a.button.is-large href='http://brockmcelroy.com'
+          span = fa_icon 'compass'
+        a.button.is-large href='mailto:brxck@protonmail.com'
+          span = fa_icon 'send-o'
+        a.button.is-large href='https://github.com/brxck'
+          span = fa_icon 'github'
     div.level
       div.level-item
