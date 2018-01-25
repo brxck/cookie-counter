@@ -11,7 +11,7 @@ html
   body
     == render 'layouts/navbar'
 
-    - if current_page?(controller: 'pages', action: 'about')
+    - if current_page?('/about')
       == yield
     - else
       section.section
