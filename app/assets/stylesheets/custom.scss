@@ -1,3 +1,8 @@
+$footer-background-color: #FFFFFF;
+
+@import "bulma";
+@import "font-awesome";
+
 .field_with_errors > input {
   border-color: red;
 }

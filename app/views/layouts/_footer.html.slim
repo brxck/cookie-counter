@@ -1,14 +1,15 @@
 section.section
-div.navbar.is-transparent
-  div.navbar-start
-    - if admin_signed_in?
-        = link_to 'Admin Panel', admin_panel_path, class: 'navbar-item'
-        = link_to 'Log Out', destroy_admin_session_path, class: 'navbar-item'
-    - else
+footer.footer
+  div.navbar.is-transparent
+    div.navbar-start
+      - if admin_signed_in?
+          = link_to 'Admin Panel', admin_panel_path, class: 'navbar-item'
+          = link_to 'Log Out', destroy_admin_session_path, class: 'navbar-item'
+      - else
+        div.navbar-item
+          = link_to 'Admin Login', new_admin_session_path, class: 'navbar-item'
+    div.navbar-end
       div.navbar-item
-        = link_to 'Admin Login', new_admin_session_path, class: 'navbar-item'
-  div.navbar-end
-    div.navbar-item
-      = link_to 'About', about_path, class: 'navbar-item'
-    div.navbar-item
-      = mail_to 'brxck@protonmail.com', 'Contact', class: 'navbar-item'
+        = link_to 'About', about_path, class: 'navbar-item'
+      div.navbar-item
+        = mail_to 'brxck@protonmail.com', 'Contact', class: 'navbar-item'
