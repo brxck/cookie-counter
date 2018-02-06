@@ -26,6 +26,7 @@ gem 'slim-rails'
 gem 'bulma-rails'
 # Semantic UI frontend framework
 gem 'semantic-ui-sass'
+gem 'jquery-rails'
 # Use web-font icons
 gem 'font-awesome-rails'
 # Seed fake data

@@ -14,10 +14,9 @@ html
     - if current_page?('/about')
       == yield
     - else
-      section.section#content
-        .container
-          - flash.each do |type, message|
-            div class="notification is-#{type}" #{message}
-          == yield
+      .ui.container
+        - flash.each do |type, message|
+          div class="notification is-#{type}" #{message}
+        == yield
 
     == render 'layouts/footer'

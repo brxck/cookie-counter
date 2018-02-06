@@ -1,6 +1,15 @@
-nav.navbar.has-shadow.is-transparent role="navigation"
-  .navbar-brand
+nav.ui.top.menu
+  .item
     a.navbar-item href="#{root_path}"
-      = image_tag "logo.png"
-
-          
+      = image_tag "logo.png", class: "ui small image"
+  .right.menu
+    .item
+      | Update
+    .item
+      | Stock
+    .item
+      | Waste
+    .ui.category.search.item
+      .ui.transparent.icon.input
+        = text_field_tag :search, nil, placeholder: "Search for item...", class: "prompt"     
+        = semantic_icon :search

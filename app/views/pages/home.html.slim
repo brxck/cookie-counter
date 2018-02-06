@@ -1,72 +1,62 @@
 = provide :title, "Home"
 
-.level
-  .level-left
-    .level-item
-      h1.title.is-3 #{fa_icon "dashboard"} Dashboard
-  .level-right
-    .level-item
-      == render "shared/item_search"
 
-.columns
-  .column
-    article.box
-      .level
-        .level-left
-          .level-item
-            p.subtitle.is-4 #{fa_icon "pencil"} Inventory Status
-        .level-right
-          .level-item
-            = link_to "Update", entries_path, class: "button is-info"
+h1.ui.header #{fa_icon "dashboard"} Dashboard
 
-      .level
-        div
-          p = @last_update.strftime("%A %m/%d")
-          p By #{@last_update_user}
-      
-      div
-        p #{@entries_updated} of #{Item.count} items updated in the last week.
-        progress.progress.is-info.is-medium #{@percent_updated}%
-      .level
-
-    article.box
-      .level
-        .level-left
-          .level-item
-            p.subtitle.is-4 #{fa_icon "exclamation-circle"} Low Stock
-        .level-right
-          .level-item
-            = link_to "View All", items_path, class: "button is-success"      
-    
-      - if @low_stock.any?
-        table.table.is-fullwidth       
-          tbody
-            - @low_stock.each do |item|
-              tr
-                td = link_to item.name, item
-                td = item.in_stock
-      - else
-        p No low stock.
-
-  .column
-    article.tile.is-child.box      
-      .level
-        .level-left
-          .level-item
-            p.subtitle.is-4 #{fa_icon "trash"} Today"s Waste
-        .level-right
-          .level-item
-            .buttons.has-addons
-              = link_to "View All", wastes_path, class: "button" 
-              = link_to "Log", new_waste_path(id: 1), class: "button is-danger"
-    
-      .level
-        - if @waste.any?
-          table.table.is-fullwidth
-            - @waste.each do |entry|
-              tr
-                td = link_to entry.item.name, entry.item
-                td = pluralize(entry.quantity, entry.item.unit)
-        - else
-          p No waste today.
+article.ui.card
+  .content
+    .header Inventory Status
+    .meta
+      span Updated #{time_ago_in_words(@last_update)} ago
+      span by #{@last_update_user}
   
+    .description
+      p #{@entries_updated} of #{Item.count} items updated in the last week.
+    
+    .ui.teal.progress#update-progress data-percent=@percent_updated
+      .bar
+
+  .ui.bottom.attached.button
+    = link_to "Update", entries_path
+
+
+article.box
+  .level
+    .level-left
+      .level-item
+        p.subtitle.is-4 #{fa_icon "exclamation-circle"} Low Stock
+    .level-right
+      .level-item
+        = link_to "View All", items_path, class: "button is-success"      
+
+  - if @low_stock.any?
+    table.table.is-fullwidth       
+      tbody
+        - @low_stock.each do |item|
+          tr
+            td = link_to item.name, item
+            td = item.in_stock
+  - else
+    p No low stock.
+
+.column
+article.tile.is-child.box      
+  .level
+    .level-left
+      .level-item
+        p.subtitle.is-4 #{fa_icon "trash"} Today"s Waste
+    .level-right
+      .level-item
+        .buttons.has-addons
+          = link_to "View All", wastes_path, class: "button" 
+          = link_to "Log", new_waste_path(id: 1), class: "button is-danger"
+
+  .level
+    - if @waste.any?
+      table.table.is-fullwidth
+        - @waste.each do |entry|
+          tr
+            td = link_to entry.item.name, entry.item
+            td = pluralize(entry.quantity, entry.item.unit)
+    - else
+      p No waste today.
