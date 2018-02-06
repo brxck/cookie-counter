@@ -3,7 +3,7 @@
 .level
   .level-left
     .level-item
-      h1.title.is-3 #{fa_icon "dashboard"} Dashboard
+      h1.title.is-4 #{fa_icon "dashboard"} Dashboard
   .level-right
     .level-item
       == render "shared/item_search"
@@ -11,10 +11,10 @@
 .columns
   .column
     article.box
-      .level
+      .level.is-mobile
         .level-left
           .level-item
-            p.subtitle.is-4 #{fa_icon "pencil"} Inventory Status
+            p.subtitle.is-5 #{fa_icon "pencil"} Inventory Status
         .level-right
           .level-item
             = link_to "Update", entries_path, class: "button is-info"
@@ -33,7 +33,7 @@
       .level
         .level-left
           .level-item
-            p.subtitle.is-4 #{fa_icon "exclamation-circle"} Low Stock
+            p.subtitle.is-5 #{fa_icon "exclamation-circle"} Low Stock
         .level-right
           .level-item
             = link_to "View All", items_path, class: "button is-success"      
@@ -49,11 +49,11 @@
         p No low stock.
 
   .column
-    article.tile.is-child.box      
+    article.box      
       .level
         .level-left
           .level-item
-            p.subtitle.is-4 #{fa_icon "trash"} Today"s Waste
+            p.subtitle.is-5 #{fa_icon "trash"} Today's Waste
         .level-right
           .level-item
             .buttons.has-addons

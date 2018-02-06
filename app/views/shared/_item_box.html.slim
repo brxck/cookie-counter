@@ -1,5 +1,5 @@
 article.box
-  .level.is-mobile
+  .level
     .level-left
       .level-item
         h2.subtitle.is-3 = @item.name
@@ -8,9 +8,9 @@ article.box
         - unless current_page?(action: "new")
           .field.has-addons
             .control
-              = link_to "Waste", new_waste_path, class: "button is-danger"
+              = link_to "Waste", new_waste_path, class: "button is-danger is-outlined"
             .control
-              = link_to "Update", new_entry_path, class: "button is-info"
+              = link_to "Update", new_entry_path, class: "button is-info is-outlined"
   
   .level
     div
