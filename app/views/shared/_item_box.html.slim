@@ -1,17 +1,18 @@
-div.box
-  div.level.is-mobile
-    div.level-left
-      level.item
+article.box
+  .level.is-mobile
+    .level-left
+      .level-item
         h2.subtitle.is-3 = @item.name
-    div.level-right
-      - unless current_page?(action: 'new')
-        div.field.has-addons
-          div.control
-            = link_to 'Waste', new_waste_path, class: 'button is-danger'
-          div.control
-            = link_to 'Update', new_entry_path, class: 'button is-info'
+    .level-right
+      .level-item
+        - unless current_page?(action: 'new')
+          .field.has-addons
+            .control
+              = link_to 'Waste', new_waste_path, class: 'button is-danger'
+            .control
+              = link_to 'Update', new_entry_path, class: 'button is-info'
   
-  div.level
+  .level
     div
       p.label In stock
       p = pluralize(@item.in_stock, @item.unit)
