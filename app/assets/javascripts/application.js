@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require semantic-ui
 //= require Chart.bundle
 //= require chartkick
 //= require serviceworker-companion

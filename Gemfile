@@ -24,6 +24,8 @@ gem 'normalize-rails'
 gem 'slim-rails'
 # Use Bulma for aesthetic
 gem 'bulma-rails'
+# Semantic UI frontend framework
+gem 'semantic-ui-sass'
 # Use web-font icons
 gem 'font-awesome-rails'
 # Seed fake data

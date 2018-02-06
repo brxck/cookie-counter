@@ -14,8 +14,8 @@ html
     - if current_page?('/about')
       == yield
     - else
-      section.section
-        div.container
+      section.section#content
+        .container
           - flash.each do |type, message|
             div class="notification is-#{type}" #{message}
           == yield
