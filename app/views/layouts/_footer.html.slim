@@ -1,6 +1,6 @@
 section.section
 footer.footer
-  div.navbar.is-transparent
+  div.navbar.is-transparent.is-mobile
     div.navbar-start
       - if admin_signed_in?
           = link_to 'Admin Panel', admin_panel_path, class: 'navbar-item'
