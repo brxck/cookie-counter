@@ -1,8 +1,14 @@
 require 'faker'
 
+# Admin
+
+Admin.create!(email: "brxck@protonmail.com",
+              password: "testing",
+              password_confirmation: "testing")
+
 # Employees
 
-Employee.create(name: 'Brock McElroy', pin: '0000')
+Employee.create!(name: 'Brock McElroy', pin: '0000')
 
 pins = Array.new(10) { Faker::Number.unique.number(4) }
 
