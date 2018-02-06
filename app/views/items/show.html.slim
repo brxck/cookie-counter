@@ -1,8 +1,8 @@
 = provide :title, @item.name
 
-div.columns
-  div.column
-    == render 'shared/item_box'
-    == render 'shared/item_history'
-  div.column
-    == render 'shared/item_chart'
+.columns
+  .column
+    == render "shared/item_box"
+    == render "shared/item_history"
+  .column
+    == render "shared/item_chart"

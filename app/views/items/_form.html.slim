@@ -1,34 +1,34 @@
 - if @item.errors.any?
-  div.notification
+  .notification
     - @item.errors.full_messages.each do |message|
       ul
         li #{message}.
 
-div.field
+.field
   = form_for @item do |f|
     label.label Name
-    div.control
-      = f.text_field :name, placeholder: 'Cookie Dough', class: 'input'
+    .control
+      = f.text_field :name, placeholder: "Cookie Dough", class: "input"
 
     label.label Unit
-    div.control
-      = f.text_field :unit, placeholder: 'Tub', class: 'input'
+    .control
+      = f.text_field :unit, placeholder: "Tub", class: "input"
     p.help Singular unit to keep track of (ex. bag, box, tub)
 
     label.label Category
-    div.control
-      = f.select :category, %w[Prepared Ingredients Supplies], class: 'input'
+    .control
+      = f.select :category, %w[Prepared Ingredients Supplies], class: "input"
 
     label.label Low-Stock Threshold
-    div.control
-      = f.text_field :threshold, placeholder: '5', class: 'input'
+    .control
+      = f.text_field :threshold, placeholder: "5", class: "input"
     p.help Number of units at which a low-stock alert is sent
 
     label.label Unit Value
-    div.control
-      = f.text_field :name, placeholder: 'Flour', class: 'input'
+    .control
+      = f.text_field :name, placeholder: "Flour", class: "input"
     p.help Cost per unit, used in wastage
 
     br
-    div.control
-      = f.submit nil, class: 'button is-success'
+    .control
+      = f.submit nil, class: "button is-success"

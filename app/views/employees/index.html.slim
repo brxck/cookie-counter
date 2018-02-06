@@ -1,4 +1,4 @@
-= provide :title, 'Employees'
+= provide :title, "Employees"
 
 h1.title Employees
 
@@ -14,8 +14,8 @@ table.table
     - @employees.each do |employee|
       tr
         td = employee.name
-        td = employee.pin.to_s.rjust(4, '0')
-        td = link_to 'Edit', edit_employee_path(employee), class: 'button is-small is-info'
-        td = link_to 'Delete', employee, class: 'button is-small is-danger', data: { confirm: 'Are you sure?' }, method: :delete
+        td = employee.pin.to_s.rjust(4, "0")
+        td = link_to "Edit", edit_employee_path(employee), class: "button is-small is-info"
+        td = link_to "Delete", employee, class: "button is-small is-danger", data: { confirm: "Are you sure?" }, method: :delete
 
-= link_to 'New Employee', new_employee_path, class: 'button is-success'
+= link_to "New Employee", new_employee_path, class: "button is-success"

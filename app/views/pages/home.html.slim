@@ -1,47 +1,47 @@
-= provide :title, 'Home'
+= provide :title, "Home"
 
-div.level
-  div.level-left
-    div.level-item
-      h1.title #{fa_icon 'dashboard'} Dashboard
-  div.level-right
-    div.level-item
-      == render 'shared/item_search'
+.level
+  .level-left
+    .level-item
+      h1.title #{fa_icon "dashboard"} Dashboard
+  .level-right
+    .level-item
+      == render "shared/item_search"
 
-div.tile.is-ancestor
-  div.tile.is-vertical.is-parent
+.tile.is-ancestor
+  .tile.is-vertical.is-parent
   
     article.tile.is-child.box
-      div.level
-        div.level-left
-          div.level-item
-            p.subtitle.is-4 #{fa_icon 'pencil'} Last Update
-        div.level-right
-          div.level-item
-            = link_to 'Update', entries_path, class: 'button is-info'
+      .level
+        .level-left
+          .level-item
+            p.subtitle.is-4 #{fa_icon "pencil"} Last Update
+        .level-right
+          .level-item
+            = link_to "Update", entries_path, class: "button is-info"
 
-      div.level
+      .level
         div
-          p = @last_update.strftime('%A %m/%d')
+          p = @last_update.strftime("%A %m/%d")
           p By #{@last_update_user}
       
       div
         p #{@entries_updated} of #{Item.count} items updated in the last week.
         progress.progress.is-info.is-medium #{@percent_updated}%
-      div.level
+      .level
       
     article.tile.is-child.box      
-      div.level
-        div.level-left
-          div.level-item
-            p.subtitle.is-4 #{fa_icon 'trash'} Today's Waste
-        div.level-right
-          div.level-item
-            div.buttons.has-addons
-              = link_to 'View All', wastes_path, class: 'button' 
-              = link_to 'Log', new_waste_path(id: 1), class: 'button is-danger'
+      .level
+        .level-left
+          .level-item
+            p.subtitle.is-4 #{fa_icon "trash"} Today"s Waste
+        .level-right
+          .level-item
+            .buttons.has-addons
+              = link_to "View All", wastes_path, class: "button" 
+              = link_to "Log", new_waste_path(id: 1), class: "button is-danger"
     
-      div.level
+      .level
         - if @waste.any?
           table.table.is-fullwidth
             - @waste.each do |entry|
@@ -51,15 +51,15 @@ div.tile.is-ancestor
         - else
           p No waste today.
 
-  div.tile.is-parent
-    div.tile.is-child.box
-      div.level
-        div.level-left
-          div.level-item
-            p.subtitle.is-4 #{fa_icon 'exclamation-circle'} Low Stock
-        div.level-right
-          div.level-item
-            = link_to 'View All', items_path, class: 'button is-success'      
+  .tile.is-parent
+    .tile.is-child.box
+      .level
+        .level-left
+          .level-item
+            p.subtitle.is-4 #{fa_icon "exclamation-circle"} Low Stock
+        .level-right
+          .level-item
+            = link_to "View All", items_path, class: "button is-success"      
     
       - if @low_stock.any?
         table.table.is-fullwidth       

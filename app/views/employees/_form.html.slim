@@ -1,20 +1,20 @@
 - if @employee.errors.any?
-  div.notification
+  .notification
     - @employee.errors.full_messages.each do |message|
       ul
         li #{message}.
 
-div.field
+.field
   = form_for @employee do |f|
     label.label Full Name
-    div.control
-      = f.text_field :name, placeholder: 'John Doe', class: 'input'
+    .control
+      = f.text_field :name, placeholder: "John Doe", class: "input"
 
     label.label PIN
-    div.control
-      = f.text_field :pin, placeholder: '0000', class: 'input'
+    .control
+      = f.text_field :pin, placeholder: "0000", class: "input"
       p.help Four digit code
 
     br
-    div.control
-      = f.submit nil, class: 'button is-success'
+    .control
+      = f.submit nil, class: "button is-success"

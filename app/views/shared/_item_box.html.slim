@@ -5,12 +5,12 @@ article.box
         h2.subtitle.is-3 = @item.name
     .level-right
       .level-item
-        - unless current_page?(action: 'new')
+        - unless current_page?(action: "new")
           .field.has-addons
             .control
-              = link_to 'Waste', new_waste_path, class: 'button is-danger'
+              = link_to "Waste", new_waste_path, class: "button is-danger"
             .control
-              = link_to 'Update', new_entry_path, class: 'button is-info'
+              = link_to "Update", new_entry_path, class: "button is-info"
   
   .level
     div

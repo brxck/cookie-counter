@@ -1,4 +1,4 @@
-div.box
+.box
   table.table.is-fullwidth
     thead
       th Date
@@ -8,7 +8,7 @@ div.box
     tbody
       - @entries.each do |entry|
         tr
-          td = entry.created_at.strftime('%m/%d/%y')
+          td = entry.created_at.strftime("%m/%d/%y")
           td = entry.in_stock
           td = entry.on_order
           td = entry.employee.initials

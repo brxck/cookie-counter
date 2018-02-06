@@ -1,28 +1,28 @@
-= provide :title, 'Add Waste'
+= provide :title, "Add Waste"
 
-div.columns
-  div.column
-    div.field
+.columns
+  .column
+    .field
 
       = form_for @waste, url: new_waste_path do |f|
 
         label.label Item
-        div.field
-          div.control
-            input.input.awesomplete#waste_item_id name='waste[item_id]' list='mylist' value="#{@item.name}"
+        .field
+          .control
+            input.input.awesomplete#waste_item_id name="waste[item_id]" list="mylist" value="#{@item.name}"
             datalist#mylist
               - @items.each do |name, id|
-                option label='#{name}' value='#{id}'
+                option label="#{name}" value="#{id}"
 
         label.label Quantity
-        div.control
-          = f.number_field :quantity, class: 'input'
+        .control
+          = f.number_field :quantity, class: "input"
         
         label.label PIN
-        div.field.has-addons
-          div.control
-            = f.number_field :pin, min: 0, max: 9999, class: 'input'
-          div.control
-            = f.submit 'Update Inventory', class: 'button is-info'
+        .field.has-addons
+          .control
+            = f.number_field :pin, min: 0, max: 9999, class: "input"
+          .control
+            = f.submit "Update Inventory", class: "button is-info"
 
-  div.column
+  .column

@@ -1,10 +1,10 @@
-= provide :title, 'Waste Log'
+= provide :title, "Waste Log"
 
-div.container.box
-  div.level
-    div.level-left
+.container.box
+  .level
+    .level-left
       h2.subtitle Items Wasted
-    div.level-right
+    .level-right
       = form_tag method: :get
       = select_tag chart_periods
   = area_chart @waste_data
@@ -18,7 +18,7 @@ table.table.is-fullwidth
   tbody
     - @wastes.each do |waste|
       tr
-        td = waste.created_at.strftime('%m/%d/%y')
+        td = waste.created_at.strftime("%m/%d/%y")
         td = waste.item.name
         td = waste.quantity
         td = waste.employee.initials

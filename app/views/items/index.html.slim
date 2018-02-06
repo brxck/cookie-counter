@@ -1,15 +1,15 @@
-= provide :title, 'Inventory'
+= provide :title, "Inventory"
 
-div.level
-  div.level-left
-    div.level-item
+.level
+  .level-left
+    .level-item
       h1.title Inventory
-  div.level-right
-    div.level-item
-      == render 'shared/item_search'
+  .level-right
+    .level-item
+      == render "shared/item_search"
 
 table.table.is-striped.is-fullwidth
-  div.thead
+  .thead
     th Item
     th Stock
     th Order
@@ -19,5 +19,5 @@ table.table.is-striped.is-fullwidth
     - if admin_signed_in?
       th
       th
-  div.tbody
+  .tbody
     = render @items 

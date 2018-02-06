@@ -1,7 +1,7 @@
-div.field
+.field
   label.label Item
-  div.field
-    div.control
+  .field
+    .control
       input.input.awesomplete#waste_item_id name='waste[item_name]' list='mylist' value="#{@item.name}"
       datalist#mylist
         - @items.each do |name, id|

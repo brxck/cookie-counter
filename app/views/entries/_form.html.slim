@@ -1,22 +1,22 @@
 - if @entry.errors.any?
-  div.notification
+  .notification
     - @entry.errors.full_messages.each do |message|
       ul
         li #{message}.
 
-div.field
+.field
   = form_for @entry, url: new_entry_path do |f|
     label.label In Stock
-    div.control
-      = f.number_field :in_stock, value: @old_stock, class: 'input'
+    .control
+      = f.number_field :in_stock, value: @old_stock, class: "input"
 
     label.label On Order
-    div.control
-      = f.number_field :on_order, value: @old_order, class: 'input'
+    .control
+      = f.number_field :on_order, value: @old_order, class: "input"
 
     label.label PIN
-    div.field.has-addons
-      div.control
-        = f.number_field :pin, min: 0, max: 9999, class: 'input'
-      div.control  
-        = f.submit 'Update Inventory', class: 'button is-info'
+    .field.has-addons
+      .control
+        = f.number_field :pin, min: 0, max: 9999, class: "input"
+      .control  
+        = f.submit "Update Inventory", class: "button is-info"
