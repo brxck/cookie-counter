@@ -15,8 +15,9 @@
                 option label="#{name}" value="#{id}"
 
         label.label Quantity
-        .control
-          = f.number_field :quantity, class: "input"
+        .field
+          .control
+            = f.number_field :quantity, class: "input"
         
         label.label PIN
         .field.has-addons

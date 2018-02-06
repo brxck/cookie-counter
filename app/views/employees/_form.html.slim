@@ -6,15 +6,17 @@
 
 .field
   = form_for @employee do |f|
-    label.label Full Name
-    .control
-      = f.text_field :name, placeholder: "John Doe", class: "input"
+    .field
+      label.label Full Name
+      .control
+        = f.text_field :name, placeholder: "John Doe", class: "input"
 
-    label.label PIN
-    .control
-      = f.text_field :pin, placeholder: "0000", class: "input"
-      p.help Four digit code
+    .field
+      label.label PIN
+      .control
+        = f.text_field :pin, placeholder: "0000", class: "input"
+        p.help Four digit code
 
-    br
-    .control
-      = f.submit nil, class: "button is-success"
+    .field
+      .control
+        = f.submit nil, class: "button is-success"

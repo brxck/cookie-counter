@@ -7,28 +7,33 @@
 .field
   = form_for @item do |f|
     label.label Name
-    .control
-      = f.text_field :name, placeholder: "Cookie Dough", class: "input"
+    .field
+      .control
+        = f.text_field :name, placeholder: "Cookie Dough", class: "input"
 
     label.label Unit
-    .control
-      = f.text_field :unit, placeholder: "Tub", class: "input"
-    p.help Singular unit to keep track of (ex. bag, box, tub)
+    .field    
+      .control
+        = f.text_field :unit, placeholder: "Tub", class: "input"
+      p.help Singular unit to keep track of (ex. bag, box, tub)
 
     label.label Category
-    .control
-      = f.select :category, %w[Prepared Ingredients Supplies], class: "input"
+    .field
+      .control
+        = f.select :category, %w[Prepared Ingredients Supplies], class: "input"
 
     label.label Low-Stock Threshold
-    .control
-      = f.text_field :threshold, placeholder: "5", class: "input"
-    p.help Number of units at which a low-stock alert is sent
+    .field
+      .control
+        = f.text_field :threshold, placeholder: "5", class: "input"
+      p.help Number of units at which a low-stock alert is sent
 
     label.label Unit Value
-    .control
-      = f.text_field :name, placeholder: "Flour", class: "input"
-    p.help Cost per unit, used in wastage
+    .field
+      .control
+        = f.text_field :name, placeholder: "Flour", class: "input"
+      p.help Cost per unit, used in wastage
 
-    br
-    .control
-      = f.submit nil, class: "button is-success"
+    .field
+      .control
+        = f.submit nil, class: "button is-success"
