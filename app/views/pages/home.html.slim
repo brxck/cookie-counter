@@ -3,19 +3,18 @@
 .level
   .level-left
     .level-item
-      h1.title #{fa_icon "dashboard"} Dashboard
+      h1.title.is-3 #{fa_icon "dashboard"} Dashboard
   .level-right
     .level-item
       == render "shared/item_search"
 
-.tile.is-ancestor
-  .tile.is-vertical.is-parent
-  
-    article.tile.is-child.box
+.columns
+  .column
+    article.box
       .level
         .level-left
           .level-item
-            p.subtitle.is-4 #{fa_icon "pencil"} Last Update
+            p.subtitle.is-4 #{fa_icon "pencil"} Inventory Status
         .level-right
           .level-item
             = link_to "Update", entries_path, class: "button is-info"
@@ -29,7 +28,27 @@
         p #{@entries_updated} of #{Item.count} items updated in the last week.
         progress.progress.is-info.is-medium #{@percent_updated}%
       .level
-      
+
+    article.box
+      .level
+        .level-left
+          .level-item
+            p.subtitle.is-4 #{fa_icon "exclamation-circle"} Low Stock
+        .level-right
+          .level-item
+            = link_to "View All", items_path, class: "button is-success"      
+    
+      - if @low_stock.any?
+        table.table.is-fullwidth       
+          tbody
+            - @low_stock.each do |item|
+              tr
+                td = link_to item.name, item
+                td = item.in_stock
+      - else
+        p No low stock.
+
+  .column
     article.tile.is-child.box      
       .level
         .level-left
@@ -50,25 +69,4 @@
                 td = pluralize(entry.quantity, entry.item.unit)
         - else
           p No waste today.
-
-  .tile.is-parent
-    .tile.is-child.box
-      .level
-        .level-left
-          .level-item
-            p.subtitle.is-4 #{fa_icon "exclamation-circle"} Low Stock
-        .level-right
-          .level-item
-            = link_to "View All", items_path, class: "button is-success"      
-    
-      - if @low_stock.any?
-        table.table.is-fullwidth       
-          tbody
-            - @low_stock.each do |item|
-              tr
-                td = link_to item.name, item
-                td = item.in_stock
-      - else
-        p No low stock.
-
-      
+  
