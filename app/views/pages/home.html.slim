@@ -1,12 +1,8 @@
 = provide :title, "Home"
 
-.level
-  .level-left
-    .level-item
-      h1.title.is-4 #{fa_icon "dashboard"} Dashboard
-  .level-right
-    .level-item
-      == render "shared/item_search"
+section.level
+  .level-item
+    h1.title.is-4 #{fa_icon "dashboard"} Dashboard
 
 .columns
   .column
@@ -14,58 +10,62 @@
       .level.is-mobile
         .level-left
           .level-item
-            p.subtitle.is-5 #{fa_icon "pencil"} Inventory Status
+            p.subtitle.is-5 #{fa_icon "pencil"} Inventory
         .level-right
           .level-item
-            = link_to "Update", entries_path, class: "button is-info"
-
-      .level
-        div
-          p = @last_update.strftime("%A %m/%d")
-          p By #{@last_update_user}
+            .buttons.has-addons
+                = link_to "View", items_path(anchor: "main"), class: "button"
+                = link_to "Update", entries_path(anchor: "main"), class: "button is-info"
+            
       
       div
         p #{@entries_updated} of #{Item.count} items updated in the last week.
-        progress.progress.is-info.is-medium #{@percent_updated}%
-      .level
+        br
+        progress.progress.is-info #{@percent_updated}%
+      
+      br
+
+      div
+        p Updated #{time_ago_in_words @last_update} ago
+        p by #{@last_update_user}
 
     article.box
-      .level
+      .level.is-mobile
         .level-left
           .level-item
             p.subtitle.is-5 #{fa_icon "exclamation-circle"} Low Stock
         .level-right
           .level-item
-            = link_to "View All", items_path, class: "button is-success"      
+            = link_to "View", "#", class: "button is-success"    
     
       - if @low_stock.any?
         table.table.is-fullwidth       
           tbody
             - @low_stock.each do |item|
               tr
-                td = link_to item.name, item
+                td = link_to item.name, item_path(anchor: "main", id: item.id)
                 td = item.in_stock
       - else
         p No low stock.
 
   .column
     article.box      
-      .level
+      .level.is-mobile
         .level-left
           .level-item
             p.subtitle.is-5 #{fa_icon "trash"} Today's Waste
         .level-right
           .level-item
             .buttons.has-addons
-              = link_to "View All", wastes_path, class: "button" 
-              = link_to "Log", new_waste_path(id: 1), class: "button is-danger"
+              = link_to "View", wastes_path(anchor: "main"), class: "button" 
+              = link_to "Log", new_waste_path(anchor: "main", id: 1), class: "button is-danger"
     
       .level
         - if @waste.any?
           table.table.is-fullwidth
             - @waste.each do |entry|
               tr
-                td = link_to entry.item.name, entry.item
+                td = link_to entry.item.name, item_path(anchor: "main", id: entry.item.id)
                 td = pluralize(entry.quantity, entry.item.unit)
         - else
           p No waste today.

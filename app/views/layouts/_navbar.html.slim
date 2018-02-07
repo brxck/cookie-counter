@@ -2,5 +2,61 @@ nav.navbar.has-shadow.is-transparent role="navigation"
   .navbar-brand
     a.navbar-item href="#{root_path}"
       = image_tag "logo.png"
+    button.button.navbar-burger.is-white data-target="nav-menu"
+      span
+      span
+      span
 
-          
+  .navbar-menu#nav-menu
+    .navbar-start
+      .navbar-item.has-dropdown.is-hoverable
+        .navbar-link Inventory
+        .navbar-dropdown
+            = link_to "Update", entries_path(anchor: "main"), class: "navbar-item"
+            = link_to "View", items_path(anchor: "main"), class: "navbar-item"
+            = link_to "Low Stock", "#", class: "navbar-item"
+
+      .navbar-item.has-dropdown.is-hoverable
+        .navbar-link Waste
+        .navbar-dropdown
+          = link_to "Log", new_waste_path(anchor: "main", id: 1), class: "navbar-item"
+          = link_to "View", wastes_path(anchor: "main"), class: "navbar-item"
+
+    .navbar-end
+      .navbar-item
+        = form_tag "/search", method: :get
+        .field.has-addons
+          .control
+            button.button type="submit"
+              span.icon.is-small
+                = fa_icon "search"
+          .control
+            = text_field_tag :item_name, nil, placeholder: "Search items", class: "input"
+
+javascript:
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // Get all "navbar-burger" elements
+    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+      // Add a click event on each of them
+      $navbarBurgers.forEach(function ($el) {
+        $el.addEventListener('click', function () {
+
+          // Get the target from the "data-target" attribute
+          var target = $el.dataset.target;
+          var $target = document.getElementById(target);
+
+          // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+          $el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+
+        });
+      });
+    }
+
+  });
+                

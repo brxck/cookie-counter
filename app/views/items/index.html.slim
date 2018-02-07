@@ -1,19 +1,13 @@
 = provide :title, "Inventory"
 
-.level
-  .level-left
-    .level-item
-      h1.title Inventory
-  .level-right
-    .level-item
-      == render "shared/item_search"
+h1.title Inventory
 
 table.table.is-striped.is-fullwidth
   .thead
     th Item
     th Stock
     th Order
-    th Threshold
+    th Alert
     th Value
     th Updated
     - if admin_signed_in?
